@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>INICIO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-title class="estado-coches-title">DISPONIBILIDAD DE LOS VEHICULOS</ion-title>
+
+<ion-segment class="full-width-segment">
+  <ion-segment-button class="verde" value="disponible" content-id="disponible">
+    <ion-label>Disponibles</ion-label>
+  </ion-segment-button>
+  <ion-segment-button class="rojo" value="vendido" content-id="vendido">
+    <ion-label>Vendidos</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
+<ion-segment-view>
+  <ion-segment-content id="disponible">
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let disponible of disponibles" >
+        <ion-item>
+          <ion-card color="success" class="card-contenedor">
+            <ion-card-header>
+              <ion-card-title>{{ disponible.marca }} {{ disponible.modelo }} ({{disponible.matricula}})</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <div class="contenido-principal">
+                <ion-avatar class="foto-coche">
+                  <img alt="FotoDeCoche" src="{{disponible.foto}}" />
+                </ion-avatar>
+                
+                <div class="detalles-coche">
+                  <p><strong>Fecha:</strong> {{ disponible.fecha }}</p>
+                  <p><strong>Kilometraje:</strong> {{ disponible.kilometros }}</p>
+                  <p><strong>Combustible:</strong> {{ disponible.combustible }}</p>
+                  <p><strong>Precio:</strong> {{ disponible.precio }} €</p>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-item>
+
+        <ion-item-options>
+          <ion-item-option color="danger" (click)="cambiarDisponibilidad(disponible, false)">Vendido</ion-item-option>
+        </ion-item-options>
+
+      </ion-item-sliding>
+    </ion-list>
+
+  </ion-segment-content>
+
+  <ion-segment-content id="vendido">
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let vendido of vendidos" >
+        <ion-item>
+          <ion-card color="danger" class="card-contenedor">
+            <ion-card-header>
+              <ion-card-title>{{ vendido.marca }} {{ vendido.modelo }} ({{vendido.matricula}})</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <div class="contenido-principal">
+                <ion-avatar class="foto-coche">
+                  <img alt="FotoDeCoche" src="{{vendido.foto}}" />
+                </ion-avatar>
+                
+                <div class="detalles-coche">
+                  <p><strong>Fecha:</strong> {{ vendido.fecha }}</p>
+                  <p><strong>Kilometraje:</strong> {{ vendido.kilometros }}</p>
+                  <p><strong>Combustible:</strong> {{ vendido.combustible }}</p>
+                  <p><strong>Precio:</strong> {{ vendido.precio }} €</p>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-item>
+    
+        <ion-item-options>
+          <ion-item-option color="success" (click)="cambiarDisponibilidad(vendido, true)">Disponible</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+  </ion-segment-content>
+</ion-segment-view>
+

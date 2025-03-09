@@ -1,0 +1,34 @@
+.center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Asegura que ocupe todo el ancho */
+}
+
+.image-container {
+    display: block;
+    margin: auto; /* Centra la imagen */
+    max-width: 100%; /* Evita que se desborde */
+    max-height: 100%;
+}
+  
+.image-container img {
+    width: 180px; /* Ajusta el tamaño */
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%; /* Opcional */
+}
+
+/* Añade 8px de espacio a la izquierda */
+ion-datetime-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding-left: 8px; /* Nuevo espacio añadido */
+    
+    &::part(native) {
+      justify-content: flex-start;
+      padding-inline-start: 0;
+      margin-inline-start: 0;
+    }
+  }

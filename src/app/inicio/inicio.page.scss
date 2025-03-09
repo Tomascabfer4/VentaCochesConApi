@@ -1,0 +1,130 @@
+/* Elimina estos estilos si no los usas */
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Estilos principales */
+ion-title {
+  text-align: center;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.estado-coches-title {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Tarjetas */
+ion-card {
+  width: 100%;
+  margin: 0.5rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  
+  ion-card-header {
+    padding: 0.5rem;
+  }
+  
+  ion-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+}
+
+/* Diseño imagen + detalles */
+.contenido-principal {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 0.5rem;
+}
+
+.foto-coche {
+  flex: 0 0 150px; // Ancho fijo cuadrado
+  width: 150px;     // Aseguramos el ancho
+  height: 110px;    // Mismo valor que el ancho
+  border-radius: 15px; // Bordes redondeados
+  overflow: hidden; // Para contener la imagen
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // Mantiene la relación de aspecto
+    border-radius: 15px; // Opcional: si quieres doble seguridad
+  }
+}
+
+
+.detalles-coche {
+  flex: 1;
+  
+  p {
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    
+    strong {
+      color: #333;
+    }
+  }
+}
+
+/* Segment buttons */
+.full-width-segment {
+  width: 100%;
+  margin: 1rem 0;
+  
+  ion-segment-button {
+    flex: 1;
+    
+    &::part(native) {
+      padding: 0.8rem;
+    }
+    
+    &.segment-button-checked {
+      background: rgba(var(--ion-color-primary-rgb), 0.1);
+      border-bottom: 2px solid var(--ion-color-primary);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .foto-coche {
+    width: 100%;
+    aspect-ratio: 4/3; // Buena relación para coches (4 unidades de ancho x 3 de alto)
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto 1rem;
+    border-radius: 15px;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 15px;
+    }
+  }
+  
+  .contenido-principal {
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+}
+/* Colores segmentos */
+.verde {
+  --color: var(--ion-color-success);
+  --color-checked: var(--ion-color-success-shade);
+}
+
+.rojo {
+  --color: var(--ion-color-danger);
+  --color-checked: var(--ion-color-danger-shade);
+}

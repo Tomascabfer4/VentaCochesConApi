@@ -1,0 +1,121 @@
+.coche-card {
+    width: 100%;  /* Ocupa todo el ancho del ion-item */
+    max-width: 100%;  /* Elimina la limitación de ancho máximo */
+    margin: 0;  /* Elimina el margen automático */
+    box-shadow: none;  /* Opcional: Elimina la sombra si no la deseas */
+    border-radius: 15px;  /* Bordes redondeados para el card */
+    overflow: hidden;  /* Asegura que el contenido no sobresalga */
+  }
+  
+  ion-item {
+    --inner-padding-end: 0;  /* Elimina el padding interno */
+    --padding-start: 0;  /* Elimina el padding interno */
+    --inner-border-width: 0;  /* Elimina el borde interno si lo hay */
+    display: block;  /* Cambia a bloque para que ocupe todo el espacio */
+  }
+  
+  .coche-list {
+    padding: 0;  /* Elimina el padding del list */
+  }
+  
+  .coche-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    --inner-border-width: 0;
+    margin: 0;  /* Elimina el margen */
+  }
+
+  ion-card-title {
+    font-weight: bold;
+  }
+
+  h1 {
+    font-weight: bold;
+  }
+  
+  .coche-content {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+    padding: 0;  /* Elimina el padding interno */
+  }
+  
+  .coche-thumbnail {
+    width: 100%;  /* Ocupa todo el ancho disponible */
+    height: 250px;  /* Altura fija para el contenedor */
+    border-radius: 15px;  /* Bordes redondeados solo en la parte superior */
+    border: 2px groove;  /* Borde en el contenedor */
+    overflow: hidden;  /* Asegura que la imagen no sobresalga */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;  /* Fondo temporal para depuración */
+  }
+  
+  .coche-thumbnail img {
+    width: 100%;  /* Ocupa todo el ancho del contenedor */
+    height: 100%;  /* Ocupa toda la altura del contenedor */
+    object-fit: cover;  /* Ajusta la imagen sin deformarla */
+    border-radius: 13px 13px 0 0;  /* Bordes redondeados solo en la parte superior */
+  }
+  
+  .coche-info {
+    flex-grow: 1;
+    padding-left: 10px;
+    text-align: center;  /* Asegura que el texto esté centrado */
+  }
+  
+  h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  ion-card-header {
+    background: var(--ion-color-light);
+    text-align: center;
+    font-weight: bold;
+    border-radius: 0 0 10px 10px;  /* Bordes redondeados solo en la parte inferior */
+    padding: 10px;  /* Añade un poco de padding */
+  }
+  
+  ion-list {
+    display: flex;
+    flex-wrap: wrap;  /* Permite que los items se distribuyan en varias líneas */
+    justify-content: space-around;  /* Da espacio entre los elementos */
+  }
+  
+  /* Redondea las esquinas del ion-list */
+  .rounded-list {
+    border-radius: 15px; /* Ajusta el valor según tus preferencias */
+    overflow: hidden; /* Asegura que el contenido no sobresalga de las esquinas redondeadas */
+    margin: 10px; /* Opcional: añade margen para separación visual */
+  }
+  
+  /* Opcional: redondea las esquinas de los ion-item (primero y último) */
+  .rounded-list ion-item:first-child {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  .rounded-list ion-item:last-child {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  
+  /* Elimina bordes entre items (si es necesario) */
+  .rounded-list ion-item {
+    --border-width: 0;
+    --inner-border-width: 0;
+  }
+  
+  @media (max-width: 768px) {
+    ion-col {
+      padding: 0; // Elimina el espacio entre columnas en móvil
+    }
+  
+    .rounded-list {
+      margin: 5px; // Reduce el margen en móvil
+    }
+  }

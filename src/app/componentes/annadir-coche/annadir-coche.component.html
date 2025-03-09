@@ -1,0 +1,60 @@
+<ion-card>
+  <ion-card-content>
+    <ion-list>
+      <ion-label>Marca</ion-label>
+      <ion-item>
+        <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce la Marca"[(ngModel)]="coche.marca"></ion-textarea>
+      </ion-item>
+      <ion-label>Modelo</ion-label>
+      <ion-item>
+        <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce el Modelo"[(ngModel)]="coche.modelo"></ion-textarea>
+      </ion-item>
+      <ion-label>Matrícula</ion-label>
+      <ion-item>
+        <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce la Matrícula"[(ngModel)]="coche.matricula"></ion-textarea>
+      </ion-item>
+      <ion-label>Fecha</ion-label>
+      
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime" presentation="date" (ionChange)="capturarFecha($event)"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      
+      <ion-label>Kilometraje</ion-label>
+      <ion-item>
+        <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce el Kilometraje"[(ngModel)]="coche.kilometros"></ion-textarea>
+      </ion-item>
+      <ion-label>Combustible</ion-label>
+      <ion-item>
+        <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce el Tipo de Combustible"[(ngModel)]="coche.combustible"></ion-textarea>
+      </ion-item>
+      <ion-label>Precio</ion-label>
+      <ion-item>
+        <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce el Precio"[(ngModel)]="coche.precio"></ion-textarea>
+      </ion-item>
+      <ion-label>Foto</ion-label>
+      <ion-item>
+        <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce la foto"[(ngModel)]="coche.foto"></ion-textarea>
+      </ion-item>
+      <!-- <ion-item>
+        <input type="file" (change)="uploadImage($event)" accept="image/*">
+      </ion-item>
+
+      <ion-item *ngIf="coche.foto">
+        <ion-item *ngIf="coche.foto" class="image-container">
+          <img [src]="coche.foto" alt="Foto del coche">
+        </ion-item>
+      </ion-item> -->
+
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
+
+
+<div class="center-button">
+  <ion-button fill="outline" color="success" (click)="ejecutarBoton()">Insertar Coche</ion-button>
+</div>
+<br>

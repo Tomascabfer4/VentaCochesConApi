@@ -1,0 +1,137 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Buscar Coche</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="4">
+        <!-- Filtro por Combustible -->
+        <ion-label position="floating">Filtrar por Combustible</ion-label>
+        <ion-select [(ngModel)]="selectedCombustible" (ionChange)="filtrarPorCombustible()" placeholder="Selecciona combustible">
+          <ion-select-option value="">Todos</ion-select-option>
+          <ion-select-option value="Gasolina">Gasolina</ion-select-option>
+          <ion-select-option value="Diésel">Diésel</ion-select-option>
+          <ion-select-option value="Eléctrico">Eléctrico</ion-select-option>
+        </ion-select>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <!-- Filtro por Marca (ahora es un input de texto) -->
+        <ion-label position="floating">Filtrar por Marca</ion-label>
+        <ion-input [(ngModel)]="selectedMarca" (ionBlur)="filtrarPorMarca()" placeholder="Escribe marca"></ion-input>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <!-- Filtro por Kilómetros -->
+        <ion-label position="floating">Filtrar por Kilómetros</ion-label>
+        <ion-input [(ngModel)]="selectedKilometros" (ionBlur)="filtrarPorKilometros()" type="number" placeholder="Filtrar por kilometros"></ion-input>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <!-- Filtro por Fecha -->
+        <ion-label position="floating">Filtrar por Fecha</ion-label>
+        <ion-input [(ngModel)]="selectedFecha" (ionBlur)="filtrarPorFecha()" type="date" placeholder="Selecciona fecha"></ion-input>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <!-- Filtro por Matrícula -->
+        <ion-label position="floating">Filtrar por Matrícula</ion-label>
+        <ion-input [(ngModel)]="selectedMatricula" (ionBlur)="filtrarPorMatricula()" placeholder="Escribe matrícula"></ion-input>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <!-- Filtro por Disponibilidad -->
+        <ion-label position="floating">Filtrar por Disponibilidad</ion-label>
+        <ion-select [(ngModel)]="selectedDisponibilidad" (ionChange)="filtrarDisponibilidad()" placeholder="Selecciona disponibilidad">
+          <ion-select-option value="">Todos</ion-select-option>
+          <ion-select-option value="true">Disponible</ion-select-option>
+          <ion-select-option value="false">Vendido</ion-select-option>
+        </ion-select>
+      </ion-col>
+      
+
+      <ion-col size="12" size-md="4">
+        <!-- Ordenación por Precio -->
+        <ion-label position="floating">Ordenar por Precio</ion-label>
+        <ion-select [(ngModel)]="selectedOrdenPrecio" (ionChange)="ordenarPorPrecio()" placeholder="Selecciona orden">
+          <ion-select-option value="">Ninguno</ion-select-option>
+          <ion-select-option value="asc">Ascendente</ion-select-option>
+          <ion-select-option value="desc">Descendente</ion-select-option>
+        </ion-select>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <!-- Ordenación por Kilometros -->
+        <ion-label position="floating">Ordenar por Kilómetros</ion-label>
+        <ion-select [(ngModel)]="selectedOrdenKilometros" (ionChange)="ordenarPorKilometros()" placeholder="Selecciona orden">
+          <ion-select-option value="">Ninguno</ion-select-option>
+          <ion-select-option value="asc">Ascendente</ion-select-option>
+          <ion-select-option value="desc">Descendente</ion-select-option>
+        </ion-select>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <!-- Ordenación por Fecha -->
+        <ion-label position="floating">Ordenar por Fecha</ion-label>
+        <ion-select [(ngModel)]="selectedOrdenFecha" (ionChange)="ordenarPorFecha()" placeholder="Selecciona orden">
+          <ion-select-option value="">Ninguno</ion-select-option>
+          <ion-select-option value="asc">Ascendente</ion-select-option>
+          <ion-select-option value="desc">Descendente</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-list class="rounded-list">
+          <ion-item *ngFor="let coche of cochesCol1">
+            <ion-card class="coche-card">
+              <ion-card-header>
+                <ion-card-title>{{ coche.marca }} {{ coche.modelo }} ({{ coche.matricula }})</ion-card-title>
+              </ion-card-header>
+              <ion-card-content class="coche-content">
+                <ion-thumbnail class="coche-thumbnail">
+                  <img [src]="coche.foto" alt="{{ coche.marca }} {{ coche.modelo }}">
+                </ion-thumbnail>
+                <div class="ion-padding">
+                  <h1>Información del Vehiculo</h1>
+                  <h2>Fecha: {{ coche.fecha }}</h2>
+                  <h2>Kilometraje: {{ coche.kilometros }}</h2>
+                  <h2>Combustible: {{ coche.combustible }}</h2>
+                  <h2>Precio: {{ coche.precio | currency:'EUR' }}</h2>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <ion-col size="12" size-md="6">
+        <ion-list class="rounded-list">
+          <ion-item *ngFor="let coche of cochesCol2">
+            <ion-card class="coche-card">
+              <ion-card-header>
+                <ion-card-title>{{ coche.marca }} {{ coche.modelo }} ({{ coche.matricula }})</ion-card-title>
+              </ion-card-header>
+              <ion-card-content class="coche-content">
+                <ion-thumbnail class="coche-thumbnail">
+                  <img [src]="coche.foto" alt="{{ coche.marca }} {{ coche.modelo }}">
+                </ion-thumbnail>
+                <div class="ion-padding">
+                  <h1>Información del Vehiculo</h1>
+                  <h2>Fecha: {{ coche.fecha }}</h2>
+                  <h2>Kilometraje: {{ coche.kilometros }}</h2>
+                  <h2>Combustible: {{ coche.combustible }}</h2>
+                  <h2>Precio: {{ coche.precio | currency:'EUR' }}</h2>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
