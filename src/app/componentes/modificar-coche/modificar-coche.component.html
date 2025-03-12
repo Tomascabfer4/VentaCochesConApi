@@ -13,14 +13,6 @@
       <ion-item>
         <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce la Matrícula"[(ngModel)]="coche.matricula"></ion-textarea>
       </ion-item>
-      <ion-label>Fecha</ion-label>
-      
-      <ion-datetime-button datetime="datetime" ></ion-datetime-button>
-        <ion-modal [keepContentsMounted]="true" trigger="datetime">
-          <ng-template>
-            <ion-datetime id="datetime" presentation="date" [(ngModel)]="coche.fecha" (ionChange)="capturarFecha($event)"></ion-datetime>
-          </ng-template>
-        </ion-modal>
       
       <ion-label>Kilometraje</ion-label>
       <ion-item>
@@ -38,6 +30,18 @@
       <ion-item>
         <ion-textarea labelPlacement="floating" fill="outline" placeholder="Introduce la foto"[(ngModel)]="coche.foto"></ion-textarea>
       </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Fecha</ion-label>
+        <ion-input
+          
+          (ionChange)="capturarFecha($event)"
+          type="date"
+          [(ngModel)]="coche.fecha"
+          placeholder="Selecciona fecha">
+        </ion-input>
+      </ion-item>
+
       <!-- <ion-item>
         <input type="file" (change)="uploadImage($event)" accept="image/*">
       </ion-item>

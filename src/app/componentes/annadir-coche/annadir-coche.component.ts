@@ -4,7 +4,7 @@ import { EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
-import { IonDatetimeButton, IonModal, IonDatetime, IonCard, IonCardContent, IonList, IonLabel, IonItem, IonTextarea, IonButton } from '@ionic/angular/standalone';
+import { IonInput, IonCard, IonCardContent, IonList, IonLabel, IonItem, IonTextarea, IonButton } from '@ionic/angular/standalone';
 import { Coche } from 'src/app/coche';
 import { ServicioCochesService } from 'src/app/servicioCoches.service';
 //import { FirestorageService } from 'src/app/servicios/firestorage.service';
@@ -13,7 +13,7 @@ import { ServicioCochesService } from 'src/app/servicioCoches.service';
   selector: 'app-annadir-coche',
   templateUrl: './annadir-coche.component.html',
   styleUrls: ['./annadir-coche.component.scss'],
-  imports: [ IonDatetimeButton, IonModal, IonDatetime, IonCard, IonCardContent, IonList, IonLabel, IonItem, IonTextarea, IonButton, CommonModule, FormsModule]
+  imports: [ IonInput, IonCard, IonCardContent, IonList, IonLabel, IonItem, IonTextarea, IonButton, CommonModule, FormsModule]
 })
 export class AnnadirCocheComponent  implements OnInit {
 

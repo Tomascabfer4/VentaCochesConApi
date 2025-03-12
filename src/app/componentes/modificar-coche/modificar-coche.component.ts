@@ -3,7 +3,7 @@ import { Input } from '@angular/core';
 import { Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { IonTextarea, IonDatetimeButton, IonModal, IonDatetime, IonList, IonCardContent, IonCard, IonLabel, IonButton, IonItem} from '@ionic/angular/standalone';
+import { IonInput, IonTextarea, IonList, IonCardContent, IonCard, IonLabel, IonButton, IonItem} from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Coche } from 'src/app/coche';
@@ -14,7 +14,7 @@ import { ServicioCochesService } from 'src/app/servicioCoches.service';
   selector: 'app-modificar-coche',
   templateUrl: './modificar-coche.component.html',
   styleUrls: ['./modificar-coche.component.scss'],
-  imports: [ IonTextarea, IonDatetimeButton, IonModal, IonDatetime, IonCard, IonCardContent, IonList, IonLabel, IonItem, IonButton, CommonModule, FormsModule ]
+  imports: [ IonInput, IonTextarea, IonCard, IonCardContent, IonList, IonLabel, IonItem, IonButton, CommonModule, FormsModule ]
 })
 export class ModificarCocheComponent implements OnInit{
 

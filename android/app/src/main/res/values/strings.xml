@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ventaCocheApi</string>
+    <string name="title_activity_main">ventaCocheApi</string>
+    <string name="package_name">com.ventaCocheApi.app</string>
+    <string name="custom_url_scheme">com.ventaCocheApi.app</string>
+</resources>

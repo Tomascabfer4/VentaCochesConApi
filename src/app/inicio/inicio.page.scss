@@ -75,22 +75,29 @@ ion-card {
   }
 }
 
-/* Segment buttons */
 .full-width-segment {
+  /* Asegúrate de usar flex para el contenedor */
+  display: flex;
   width: 100%;
   margin: 1rem 0;
-  
-  ion-segment-button {
-    flex: 1;
-    
-    &::part(native) {
-      padding: 0.8rem;
-    }
-    
-    &.segment-button-checked {
-      background: rgba(var(--ion-color-primary-rgb), 0.1);
-      border-bottom: 2px solid var(--ion-color-primary);
-    }
+  /* Si quieres que ocupe todo el ancho sin el padding lateral 
+     de ion-content, elimina o ajusta el padding en el contenedor padre. */
+}
+
+.full-width-segment ion-segment-button {
+  /* Cada botón ocupa la misma fracción de espacio */
+  flex: 1;
+  /* Evita que sobrepase el contenedor si el texto es largo */
+  min-width: 0;
+
+  /* Centrar el contenido del botón */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ion-label {
+    width: 100%;
+    text-align: center;
   }
 }
 
